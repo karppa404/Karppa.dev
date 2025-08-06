@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog"
 export function Nav() {
     return (
-        <div className="w-full p-2">
+        <div className="w-full p-2 bg-background/60 backdrop-blur-md border-b ">
             <div className="flex  justify-between mx-auto gap-6 ">
                 {/* Logo and Brand */}
                 <div className="flex items-center">
@@ -49,14 +49,14 @@ export function Nav() {
                 {/* Social Icons */}
                 <div className="flex items-center gap-4">
                     <Link
-                        href="https://github.com"
+                        href="https://github.com/karppa404"
                         className=" transition-colors"
                         aria-label="GitHub"
                     >
                         <FaGithub size={28} />
                     </Link>
                     <Link
-                        href="https://youtube.com"
+                        href="https://www.youtube.com/@Karpppa"
                         className=" transition-colors"
                         aria-label="YouTube"
                     >
@@ -69,7 +69,7 @@ export function Nav() {
                     >
                         <FaFileAlt size={26} />
                     </Link>
-                    <ModeToggle/>
+                    <ModeToggle />
                 </div>
             </div>
         </div>
@@ -100,15 +100,15 @@ export function MobileNav() {
                     <DialogHeader>
                         <DialogTitle className="underline">
 
-                    <Link href={"/"} className="flex items-center gap-3">
-                        <Image
-                            src={Plush}
-                            alt="Plush Logo"
-                            width={50}
-                            height={50}
-                            className=""
-                        />
-                        </Link>
+                            <Link href={"/"} className="flex items-center gap-3">
+                                <Image
+                                    src={Plush}
+                                    alt="Plush Logo"
+                                    width={50}
+                                    height={50}
+                                    className=""
+                                />
+                            </Link>
 
                         </DialogTitle>
                         <DialogDescription className="w-full h-full ">
@@ -133,14 +133,14 @@ export function MobileNav() {
                                 <div className="flex items-center gap-4">
 
                                     <Link
-                                        href="https://github.com"
+                                        href="https://github.com/karppa404"
                                         className=" transition-colors"
                                         aria-label="GitHub"
                                     >
                                         <FaGithub size={28} />
                                     </Link>
                                     <Link
-                                        href="https://youtube.com"
+                                        href="https://www.youtube.com/@Karpppa"
                                         className=" transition-colors"
                                         aria-label="YouTube"
                                     >
@@ -153,7 +153,7 @@ export function MobileNav() {
                                     >
                                         <FaFileAlt size={26} />
                                     </Link>
-                                    <ModeToggle/>
+                                    <ModeToggle />
                                 </div>
                             </div>
                         </DialogDescription>
