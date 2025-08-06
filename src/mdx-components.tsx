@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-
+import Link from 'next/link'
 const components: MDXComponents = {
   h1: ({ children }) => (
     <h1 className="text-4xl font-bold mb-6 mt-8 first:mt-0">{children}</h1>
@@ -47,9 +47,9 @@ const components: MDXComponents = {
     </pre>
   ),
   a: ({ children, href }) => (
-    <a href={href} className="text-primary hover:underline">
+    <Link href={href} className="text-primary hover:underline">
       {children}
-    </a>
+    </Link>
   ),
   table: ({ children }) => (
     <div className="table-wrapper">

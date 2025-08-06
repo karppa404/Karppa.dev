@@ -78,7 +78,7 @@ export function Nav() {
 
 export function MobileNav() {
     return (
-        <div className="w-full flex justify-between align-baseline items-center p-2">
+        <div className="w-full flex justify-between align-baseline items-center p-2 bg-background/30 backdrop-blur-sm border-b">
             <div className="flex items-center">
                 <Link href={"/"} className="flex items-center gap-3">
                     <Image
@@ -91,7 +91,7 @@ export function MobileNav() {
                     <h1 className="text-2xl font-bold ">Karppa</h1>
                 </Link>
             </div>
-            <Dialog>
+            <Dialog >
                 <DialogTrigger>
                     <GiHamburgerMenu className="size-6" />
 
@@ -116,7 +116,7 @@ export function MobileNav() {
 
 
                                 {/* Navigation Links */}
-                                <div className="flex flex-col items-center gap-3">
+                                    
                                     <Link
                                         href={"/projects"}
                                         className=" text-2xl font-medium transition-colors"
@@ -129,7 +129,6 @@ export function MobileNav() {
                                     >
                                         Blog
                                     </Link>
-                                </div>
                                 <div className="flex items-center gap-4">
 
                                     <Link

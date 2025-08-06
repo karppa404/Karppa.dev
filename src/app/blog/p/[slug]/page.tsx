@@ -16,7 +16,7 @@ export default async function Page({
   const { content, data } = matter(fileContent)
   
   return (
-    <article className="w-full max-w-4xl mx-auto p-6">
+    <article className="w-full mx-auto p-6">
       {/* Optional: Display metadata in a nice header */}
       <header className="mb-8 pb-6 border-b border-border">
         <h1 className="text-4xl font-bold mb-4">{data.title}</h1>
