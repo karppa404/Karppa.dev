@@ -3,7 +3,8 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { Nav, MobileNav } from "@/components/nav";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
@@ -20,6 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
+    <Analytics/>
+    <SpeedInsights/>
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${jetbrainsMono.variable} font-mono antialiased min-h-screen w-full flex justify-center `}
@@ -48,5 +52,7 @@ export default function RootLayout({
         </div>
       </body>
     </html>
+    </>
+    
   );
 }
