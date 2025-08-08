@@ -97,12 +97,10 @@ export function MobileNav() {
             <Dialog >
                 <DialogTrigger>
                     <GiHamburgerMenu className="size-6" />
-
                 </DialogTrigger>
                 <DialogContent>
                     <DialogHeader>
                         <DialogTitle className="underline">
-
                             <DialogClose asChild>
                                 <Link href={"/"} className="flex items-center gap-3">
                                     <Image
@@ -117,8 +115,6 @@ export function MobileNav() {
                         </DialogTitle>
                         <DialogDescription asChild>
                             <div className="w-full h-full flex flex-col items-center  justify-center gap-4">
-
-
                                 {/* Navigation Links */}
                                 <DialogClose asChild>
                                     <Link href={"/projects"} className="text-2xl font-medium transition-colors">
@@ -137,40 +133,37 @@ export function MobileNav() {
                                         {/* Icons */}
                                     </div>
                                 </DialogClose>
-
-
                                 <div className="flex items-center gap-4">
-                                <DialogClose asChild>
+                                    <DialogClose asChild>
 
-                                    <Link
-                                        href="https://github.com/karppa404"
-                                        className=" transition-colors"
-                                        aria-label="GitHub"
-                                    >
-                                        <FaGithub size={28} />
-                                    </Link>
-                                    </DialogClose>
-                                                                    <DialogClose asChild>
-
-                                    <Link
-                                        href="https://www.youtube.com/@Karpppa"
-                                        className=" transition-colors"
-                                        aria-label="YouTube"
-                                    >
-                                        <FaYoutube size={28} />
-                                    </Link>
+                                        <Link
+                                            href="https://github.com/karppa404"
+                                            className=" transition-colors"
+                                            aria-label="GitHub"
+                                        >
+                                            <FaGithub size={28} />
+                                        </Link>
                                     </DialogClose>
                                     <DialogClose asChild>
-                                    <Link
-                                        href="/resume"
-                                        className=" transition-colors"
-                                        aria-label="Resume"
-                                    >
-                                        <FaFileAlt size={26} />
-                                    </Link>
+
+                                        <Link
+                                            href="https://www.youtube.com/@Karpppa"
+                                            className=" transition-colors"
+                                            aria-label="YouTube"
+                                        >
+                                            <FaYoutube size={28} />
+                                        </Link>
+                                    </DialogClose>
+                                    <DialogClose asChild>
+                                        <Link
+                                            href="/resume"
+                                            className=" transition-colors"
+                                            aria-label="Resume"
+                                        >
+                                            <FaFileAlt size={26} />
+                                        </Link>
                                     </DialogClose>
                                     <ModeToggle />
-
                                 </div>
                             </div>
                         </DialogDescription>

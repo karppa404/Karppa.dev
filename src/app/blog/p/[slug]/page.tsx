@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { title } from 'process'
 
 export default async function Page({
   params,
@@ -20,6 +21,7 @@ export default async function Page({
       {/* Optional: Display metadata in a nice header */}
       <header className="mb-8 pb-6 border-b border-border">
         <h1 className="text-4xl font-bold mb-4">{data.title}</h1>
+        <img src={data.thumbnail} alt={title} className='p-5'/>
         {data.description && (
           <p className="text-xl text-muted-foreground mb-4">{data.description}</p>
         )}
