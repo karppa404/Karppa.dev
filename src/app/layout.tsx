@@ -37,7 +37,7 @@ export default function RootLayout({
         <div className=" w-full md:max-w-2xl flex justify-center  border-x-1 border-accent/30  shadow-xl backdrop-blur-xs">
             <div className="w-full h-full flex flex-col items-center gap-2 ">
               {/* Desktop Navigation - visible on medium screens and up */}
-              <div className="w-full hidden md:block sticky top-0 z-50">
+              <div className="w-full hidden md:block sticky top-0 z-50 ">
                 <Nav />
               </div>
               

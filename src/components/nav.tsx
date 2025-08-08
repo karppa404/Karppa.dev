@@ -17,8 +17,8 @@ import {
 } from "@/components/ui/dialog"
 export function Nav() {
     return (
-        <div className="w-full p-2 bg-background/60 backdrop-blur-2xl border-b border-accent/30">
-            <div className="flex  justify-between mx-auto gap-6 ">
+        <div className="w-full p-2  bg-background/30  border-b border-accent/30 backdrop-blur-sm">
+            <div className="flex  justify-between mx-auto gap-6 w-full h-full ">
                 {/* Logo and Brand */}
                 <div className="flex items-center">
                     <Link href={"/"} className="flex items-center gap-3">

@@ -19,7 +19,7 @@ export default async function Page({
   return (
     <article className="w-full mx-auto p-6">
       {/* Optional: Display metadata in a nice header */}
-      <header className="mb-8 pb-6 border-b border-border">
+      <div className="mb-8 pb-6 border-b border-border">
         <h1 className="text-4xl font-bold mb-4">{data.title}</h1>
         <img src={data.thumbnail} alt={title} className='p-5'/>
         {data.description && (
@@ -44,7 +44,7 @@ export default async function Page({
             ))}
           </div>
         )}
-      </header>
+      </div>
       
       {/* Render the MDX content without frontmatter */}
       <div className="mdx-content">

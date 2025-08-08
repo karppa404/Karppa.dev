@@ -253,7 +253,7 @@ body {
   min-height: 100vh; /* ensure full height */
   
   /* Background colors and dots */
-  background-image: radial-gradient(var(--color-accent, --color-accent) 2px, transparent 0px);
+  background-image: radial-gradient(var(--color-accent, --color-accent) 3px, transparent 0px);
   background-size: 30px 30px;
   background-position: -5px -5px;
   background-attachment: fixed;
