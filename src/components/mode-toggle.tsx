@@ -20,7 +20,6 @@ export function ModeToggle() {
     setTimeout(() => setSpinning(false), 500)
   }
 
-  // 🚫 Don't render icons until we know the theme
   if (!mounted) {
     return (
       <Button variant="outline" size="icon" className="relative">
