@@ -77,7 +77,7 @@ export default function JakeResume({ data }) {
           <h1 className="text-3xl md:text-4xl font-extrabold">{resume.name}</h1>
           <p className="text-sm md:text-base  mt-1">{resume.role} — {resume.location}</p>
         </div>
-        <div className="flex flex-col md:items-end text-sm text-slate-500 dark:text-slate-300">
+        <div className="flex flex-col md:items-end text-sm ">
           <a href={`mailto:${resume.email}`} className="hover:underline">{resume.email}</a>
           <a href={`tel:${resume.phone}`} className="hover:underline">{resume.phone}</a>
           <a href={`https://${resume.website}`} target="_blank" rel="noreferrer" className="hover:underline">{resume.website}</a>
@@ -103,8 +103,8 @@ export default function JakeResume({ data }) {
           <div className="">
             <h3 className="text-sm font-semibold uppercase ">Links</h3>
             <div className="mt-2 text-sm text-accent/60  inline-flex gap-4">
-              <a href={`https://${resume.linkedin}`} target="_blank" rel="noreferrer" className="hover:underline"><FaGithub className="size-12 hover:text-accent"/></a>
-            <a href={`https://${resume.github}`} target="_blank" rel="noreferrer" className="hover:underline"><FaLinkedin className="size-12 hover:text-accent"/></a>
+              <a href={`https://${resume.linkedin}`} target="_blank" rel="noreferrer" className="hover:underline"><FaGithub className="size-12 hover:text-accent text-accent-foreground"/></a>
+            <a href={`https://${resume.github}`} target="_blank" rel="noreferrer" className="hover:underline"><FaLinkedin className="size-12 hover:text-accent text-accent-foreground"/></a>
             </div>
           </div>
         </aside>
@@ -114,7 +114,7 @@ export default function JakeResume({ data }) {
             <h2 className="text-xl font-semibold">Experience</h2>
             <div className="mt-4 space-y-6">
               {resume.experience.map((exp) => (
-                <article key={exp.company} className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800">
+                <article key={exp.company} className="p-4 rounded-lg bg-accent dark:bg-accent">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="font-semibold">{exp.title}</h3>
