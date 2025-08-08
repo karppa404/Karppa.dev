@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import Image from "next/image"
 import { FaGithub, FaYoutube, FaFileAlt } from "react-icons/fa"
@@ -10,6 +11,8 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
+    DialogClose,
+
     DialogTrigger,
 } from "@/components/ui/dialog"
 export function Nav() {
@@ -100,36 +103,44 @@ export function MobileNav() {
                     <DialogHeader>
                         <DialogTitle className="underline">
 
-                            <Link href={"/"} className="flex items-center gap-3">
-                                <Image
-                                    src={Plush}
-                                    alt="Plush Logo"
-                                    width={50}
-                                    height={50}
-                                    className=""
-                                />
-                            </Link>
-
+                            <DialogClose asChild>
+                                <Link href={"/"} className="flex items-center gap-3">
+                                    <Image
+                                        src={Plush}
+                                        alt="Plush Logo"
+                                        width={50}
+                                        height={50}
+                                        className=""
+                                    />
+                                </Link>
+                            </DialogClose>
                         </DialogTitle>
-                        <DialogDescription className="w-full h-full ">
+                        <DialogDescription asChild>
                             <div className="w-full h-full flex flex-col items-center  justify-center gap-4">
 
 
                                 {/* Navigation Links */}
-                                    
-                                    <Link
-                                        href={"/projects"}
-                                        className=" text-2xl font-medium transition-colors"
-                                    >
+                                <DialogClose asChild>
+                                    <Link href={"/projects"} className="text-2xl font-medium transition-colors">
                                         Projects
                                     </Link>
-                                    <Link
-                                        href={"/blog"}
-                                        className=" text-2xl font-medium  transition-colors"
-                                    >
+                                </DialogClose>
+
+                                <DialogClose asChild>
+                                    <Link href={"/blog"} className="text-2xl font-medium transition-colors">
                                         Blog
                                     </Link>
+                                </DialogClose>
+
+                                <DialogClose asChild>
+                                    <div className="flex items-center gap-4">
+                                        {/* Icons */}
+                                    </div>
+                                </DialogClose>
+
+
                                 <div className="flex items-center gap-4">
+                                <DialogClose asChild>
 
                                     <Link
                                         href="https://github.com/karppa404"
@@ -138,6 +149,9 @@ export function MobileNav() {
                                     >
                                         <FaGithub size={28} />
                                     </Link>
+                                    </DialogClose>
+                                                                    <DialogClose asChild>
+
                                     <Link
                                         href="https://www.youtube.com/@Karpppa"
                                         className=" transition-colors"
@@ -145,6 +159,8 @@ export function MobileNav() {
                                     >
                                         <FaYoutube size={28} />
                                     </Link>
+                                    </DialogClose>
+                                    <DialogClose asChild>
                                     <Link
                                         href="/resume"
                                         className=" transition-colors"
@@ -152,7 +168,9 @@ export function MobileNav() {
                                     >
                                         <FaFileAlt size={26} />
                                     </Link>
+                                    </DialogClose>
                                     <ModeToggle />
+
                                 </div>
                             </div>
                         </DialogDescription>

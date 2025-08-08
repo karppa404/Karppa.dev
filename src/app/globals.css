@@ -233,3 +233,16 @@
 .mdx-content hr {
   @apply border-t border-border my-6;
 }
+
+body {
+  margin: 0; /* remove default browser margins */
+  min-height: 100vh; /* ensure full height */
+  
+  /* Background colors and dots */
+  background-color: var(--background, #fff);
+  background-image: radial-gradient(var(--color-accent, #ccc) 1px, transparent 0px);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
