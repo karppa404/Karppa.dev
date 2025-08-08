@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog"
 export function Nav() {
     return (
-        <div className="w-full p-2 bg-background/60 backdrop-blur-md border-b border-accent">
+        <div className="w-full p-2 bg-background/60 backdrop-blur-md border-b border-accent/30">
             <div className="flex  justify-between mx-auto gap-6 ">
                 {/* Logo and Brand */}
                 <div className="flex items-center">
@@ -78,7 +78,7 @@ export function Nav() {
 
 export function MobileNav() {
     return (
-        <div className="w-full flex justify-between align-baseline items-center p-2 bg-background/30 backdrop-blur-sm border-b border-accent">
+        <div className="w-full flex justify-between align-baseline items-center p-2 bg-background/30 backdrop-blur-sm border-b border-accent/30">
             <div className="flex items-center">
                 <Link href={"/"} className="flex items-center gap-3">
                     <Image

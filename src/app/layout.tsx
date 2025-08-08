@@ -28,10 +28,10 @@ export default function RootLayout({
       <body
         className={`${jetbrainsMono.variable} font-mono antialiased min-h-screen w-full flex justify-center `}
       >
-        <div className=" w-full md:max-w-2xl flex justify-center  border-x-1 border-accent">
+        <div className=" w-full md:max-w-2xl flex justify-center  border-x-1 border-accent/30">
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
