@@ -30,32 +30,29 @@ import { ModeToggle } from "@/components/mode-toggle";
 		});
 	}
 </script>
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/img.png" />
 		<title>Karrpa.dev</title>
 	</head>
-	<body class="font-mono">
+	<body class="font-mono ">
 		<div class="min-h-screen flex flex-col md:flex-row max-w-6xl mx-auto">
 			<!-- Sidebar -->
 			<aside
-				class="w-full md:w-64 flex flex-col gap-6 sticky top-0 border-r h-fit pr-4"
+				class="w-full md:w-64 flex flex-col gap-6 sticky top-0 border-r h-fit p-4"
 			>
-				<div class="">
+			<a href="/">
+				<div>
 					<h1 class="text-4xl font-bold text-primary">Karrpa.dev</h1>
 					<p class="text-sm">A Repository of my stuff</p>
 				</div>
 
-				<nav class="flex flex-col gap-2">
-					<a href="/" class="hover:text-primary">Home</a>
-					<a href="/works" class="hover:text-primary">Works</a>
-					<a href="/posts" class="hover:text-primary">Posts</a>
-					<a href="/resources" class="hover:text-primary"
-						>Resources</a
-					>
-				</nav>
+			</a>
+			
+
 
 				<!-- Social Icons -->
 				<div class="flex gap-2 text-xl">
@@ -69,13 +66,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 			<slot />
 
-			<!-- Right Sidebar (Posts) - hidden on mobile -->
-			<aside
-				class="hidden lg:block w-80 p-6 overflow-y-auto sticky top-0 border-l h-fit"
-			>
-				<h3 class="text-2xl underline font-bold text-primary">Posts</h3>
-				<div class="mt-4 space-y-4"></div>
-			</aside>
+	
 		</div>
 	</body>
 </html>
