@@ -1,36 +1,72 @@
+// Alternative implementation using fast-xml-parser
+// First install: npm install fast-xml-parser
+// src/pages/api/feed.ts
+
+import { XMLParser } from 'fast-xml-parser';
+
 export async function GET() {
   try {
-    const res = await fetch('https://alreadyhappened.xyz/feed');
-    const text = await res.text();
+    const res = await fetch('https://alreadyhappened.xyz/feed', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; Blog RSS Reader)',
+        'Accept': 'application/rss+xml, application/xml, text/xml',
+      },
+    });
 
-    // For server-side XML parsing, you might want to use a library like 'fast-xml-parser'
-    // npm install fast-xml-parser
-    
-    // Simple regex parsing as fallback (not as robust as proper XML parsing)
-    const items = [];
-    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-    const titleRegex = /<title><!\[CDATA\[(.*?)\]\]><\/title>/;
-    const descRegex = /<description><!\[CDATA\[(.*?)\]\]><\/description>/;
-    const linkRegex = /<link>(.*?)<\/link>/;
-
-    let match;
-    while ((match = itemRegex.exec(text)) !== null) {
-      const itemContent = match[1];
-      const title = titleRegex.exec(itemContent)?.[1] || '';
-      const description = descRegex.exec(itemContent)?.[1] || '';
-      const link = linkRegex.exec(itemContent)?.[1] || '';
-
-      items.push({ title, description, link });
+    if (!res.ok) {
+      return new Response(
+        JSON.stringify({ error: `Failed to fetch feed: ${res.status} ${res.statusText}` }), 
+        { status: res.status, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
-    return new Response(JSON.stringify(items), {
-      headers: { 'Content-Type': 'application/json' },
+    const xmlText = await res.text();
+    
+    const parser = new XMLParser({
+      ignoreAttributes: false,
+      attributeNamePrefix: "@_",
+      textNodeName: "_text",
+      parseAttributeValue: true,
+      parseTagValue: true,
+      trimValues: true,
     });
+
+    const xmlDoc = parser.parse(xmlText);
+    
+    // Navigate the parsed XML structure
+    const rss = xmlDoc.rss || xmlDoc.feed; // Handle both RSS and Atom feeds
+    if (!rss) {
+      throw new Error('Invalid RSS feed structure');
+    }
+
+    const channel = rss.channel || rss;
+    const items = channel.item || channel.entry || [];
+    
+    // Ensure items is an array
+    const itemsArray = Array.isArray(items) ? items : [items];
+    
+    const posts = itemsArray.map((item: any) => ({
+      title: item.title?._text || item.title || 'Untitled',
+      description: item.description?._text || item.description || item.summary?._text || item.summary || 'No description available',
+      link: item.link?._text || item.link?.href || item.link || '',
+      pubDate: item.pubDate || item.published || item.updated || ''
+    }));
+
+    return new Response(JSON.stringify(posts), {
+      headers: { 
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, max-age=300',
+      },
+    });
+
   } catch (err) {
     console.error('Failed to fetch feed:', err);
-    return new Response(JSON.stringify({ error: 'Failed to fetch feed' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+    
+    return new Response(
+      JSON.stringify({ error: 'Failed to fetch feed', details: errorMessage }), 
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 }
