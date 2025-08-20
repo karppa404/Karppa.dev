@@ -1,6 +1,8 @@
 ---
 import "@/styles/global.css";
 import { FaGithub, FaTwitter, FaRss, FaYoutube } from "react-icons/fa";
+import { SiSubstack } from "react-icons/si";
+
 import { ModeToggle } from "@/components/mode-toggle";
 ---
 
@@ -38,35 +40,30 @@ import { ModeToggle } from "@/components/mode-toggle";
 		<link rel="icon" type="image/svg+xml" href="/img.png" />
 		<title>Karrpa.dev</title>
 	</head>
-	<body class="font-mono ">
-		<div class="min-h-screen flex flex-col md:flex-row max-w-6xl mx-auto">
-			<!-- Sidebar -->
-			<aside
-				class="w-full md:w-64 flex flex-col gap-6 sticky top-0 border-r h-fit p-4"
-			>
-			<a href="/">
-				<div>
-					<h1 class="text-4xl font-bold text-primary">Karrpa.dev</h1>
-					<p class="text-sm">A Repository of my stuff</p>
-				</div>
+	<body class="font-mono min-h-screen">
+		<!-- nav -->
+		<div
+			class="w-full flex items-center justify-center sticky top-0 py-4 px-4 bg-background/50 backdrop-blur-lg"
+		>
+		<div class="w-full md:flex  max-w-6xl justify-between">
 
+			<!-- Left: Site title -->
+			<a href="/" class="flex flex-col">
+				<h1 class="text-4xl font-bold text-primary">Karrpa.dev</h1>
+				<p class="text-sm">A Repository of my stuff</p>
 			</a>
-			
 
-
-				<!-- Social Icons -->
-				<div class="flex gap-2 text-xl">
-					<a class="hover:text-primary" href="#"><FaGithub /></a>
-					<a class="hover:text-primary" href="#"><FaTwitter /></a>
-					<a class="hover:text-primary" href="#"><FaRss /></a>
-					<a class="hover:text-primary" href="#"><FaYoutube /></a>
-					<ModeToggle client:only />
-				</div>
-			</aside>
-
-			<slot />
-
+			<!-- Right: Social Icons -->
+			<div class="flex gap-4 text-xl items-center">
 	
+				<ModeToggle client:only />
+			</div>
+		</div>
+		</div>
+
+		<!-- Page content -->
+		<div class="min-h-screen flex flex-col max-w-3xl mx-auto">
+			<slot />
 		</div>
 	</body>
 </html>

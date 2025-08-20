@@ -1,8 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Card from "@/components/card";
-import Feed from "@/components/Feed.tsx";
-
+import { BsSubstack } from "react-icons/bs";
+import { FaYoutube } from "react-icons/fa6";
+import { FaBluesky } from "react-icons/fa6";
 ---
 
 <Layout>
@@ -17,6 +18,13 @@ import Feed from "@/components/Feed.tsx";
 				alt="img"
 				class="w-full rounded-2xl shadow-xl"
 			/>
+			<p class="text-lg mt-2">
+				At the moment I'm working through my computer science degree at
+				UTD. On the side I like to work on various projects, write about
+				subjects that interest me, and work towards bettering myself in
+				all aspects of life. You can find updates on what I have been up
+				to on this site.
+			</p>
 		</section>
 
 		<section id="Projects" class="w-full h-full mb-10">
@@ -32,33 +40,36 @@ import Feed from "@/components/Feed.tsx";
 					description="The site that you are looking at right now."
 					link="https://github.com/karppa404/Karppa.dev"
 				/>
-						<Card
+				<Card
 					title="Haste Server"
 					description="Paste server for me to send text content."
 					link="https://github.com/karppa404/Haste"
 				/>
 			</div>
 		</section>
-		  <section id="Blog" class="w-full h-full mb-10">
-    <h1 class="text-4xl font-black text-primary underline">Blog Posts</h1>
-		<p class="text-lg mt-2">
-				If a topic catches my interest, I will write a blog post about
-				it. These posts are usually technical in nature, but I may also
-				write about other topics that I find interesting.
-			</p>
+		<section id="Blog" class="w-full h-full mb-10">
+			<h1 class="text-4xl font-black text-primary underline mb-10">
+				links
+			</h1>
 
-    <Feed/>
-  </section>
-
-		<section id="Videos" class="w-full h-full mb-10">
-			<h1 class="text-4xl font-black text-primary underline">Videos</h1>
-			<p class="text-lg mt-2">
-				If a Project or a topic is interesting enough, I will make a
-				video about it. These videos are usually technical in nature,
-				but I may also make videos about other topics that I find
-				interesting.
-			</p>
-			<div class="w-full h-fit grid grid-cols-2 gap-4"></div>
+			<Card
+				title="Substack"
+				icon={BsSubstack}
+				description="If a topic catches my interest, I will write a blog post about it. These posts are usually technical in nature, but I may also write about other topics that I find interesting."
+				link="https://substack.com/@jottingannon/posts"
+			/>
+			<Card
+				title="Blue Sky"
+				icon={FaBluesky}
+				description="This is where I engage with communities that interest me or reupload my articles."
+				link="https://bsky.app/profile/karppa.dev"
+			/>
+			<Card
+				title="Youtube"
+				icon={FaYoutube}
+				description="If I think I did a topic justice then I will post a longer form video going over it. "
+				link="https://www.youtube.com/@Karpppa"
+			/>
 		</section>
 	</main>
 </Layout>
