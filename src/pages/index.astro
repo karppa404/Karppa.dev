@@ -1,0 +1,99 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Card from "@/components/card";
+
+const allPosts = Object.values(import.meta.glob('@/posts/*.md', { eager: true }));
+
+---
+
+<Layout>
+	<main class="w-full h-full p-2">
+		<section id="About" class="w-full h-full mb-10 gap-5">
+			<h1 class="text-4xl font-black text-primary underline">
+				Hello world👋
+			</h1>
+			<p class="text-lg mt-2">Developer | Dallas / Texas / US</p>
+			<img src="/img.png" alt="img" class="w-full rounded-2xl shadow-xl"/>
+		</section>
+
+		<section id="Projects" class="w-full h-full mb-10">
+			<h1 class="text-4xl font-black text-primary underline">
+				Projects
+			</h1>
+			<p class="text-lg mt-2">
+				These are passion projects I have worked on or am currently
+				working on. These range from small one-off projects to larger,
+				ongoing endeavors.
+			</p>
+			<div class="w-full h-fit grid grid-cols-2 gap-4">
+				<Card
+					title="Welcome to Karppa.dev"
+					description="This is a simple Astro project with TypeScript and Tailwind CSS setup."
+					link="#"
+				/>
+				<Card
+					title="Welcome to Karppa.dev"
+					description="This is a simple Astro project with TypeScript and Tailwind CSS setup."
+										link="#"
+
+				/>
+								<Card
+					title="Welcome to Karppa.dev"
+					description="This is a simple Astro project with TypeScript and Tailwind CSS setup."
+										link="#"
+
+				/>
+				<Card
+					title="Welcome to Karppa.dev"
+					description="This is a simple Astro project with TypeScript and Tailwind CSS setup."
+										link="#"
+
+				/>
+								<Card
+					title="Welcome to Karppa.dev"
+					description="This is a simple Astro project with TypeScript and Tailwind CSS setup."
+										link="#"
+
+				/>
+				<Card
+					title="Welcome to Karppa.dev"
+					description="This is a simple Astro project with TypeScript and Tailwind CSS setup."
+										link="#"
+
+				/>
+			</div>
+		</section>
+		<section id="Blog" class="w-full h-full mb-10">
+			<h1 class="text-4xl font-black text-primary underline">
+				Blog Posts
+			</h1>
+			<p class="text-lg mt-2">
+				If a topic catches my interest, I will write a blog post about it.
+				These posts are usually technical in nature, but I may also write
+				about other topics that I find interesting.
+			</p>
+			<div class="w-full h-fit grid grid-cols-1 gap-4">
+				{allPosts.map((post: any) =>
+				<Card
+					title={post.frontmatter.title}
+					description={post.frontmatter.description}
+					link={'/ƒ/'+post.frontmatter.title}
+				/>
+				)}
+			</div>
+		</section>
+		<section id="videos" class="w-full h-full mb-10">
+			<h1 class="text-4xl font-black text-primary underline">
+				Videos
+			</h1>
+			<p class="text-lg mt-2">
+				If a Project or a topic is interesting enough, I will make a video
+				about it. These videos are usually technical in nature, but I may
+				also make videos about other topics that I find interesting.
+			</p>
+			<div class="w-full h-fit grid grid-cols-2 gap-4">
+	
+			</div>
+		</section>
+	</main>
+</Layout>

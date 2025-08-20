@@ -1,50 +1,33 @@
-"use client"
-
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
-  const [spinning, setSpinning] = React.useState(false)
+  const [isDark, setIsDark] = React.useState(false)
 
+  // Initialize theme from document class
   React.useEffect(() => {
-    setMounted(true)
+    const darkMode = document.documentElement.classList.contains("dark")
+    setIsDark(darkMode)
   }, [])
 
-  const toggleTheme = () => {
-    setSpinning(true)
-    setTheme(theme === "light" ? "dark" : "light")
-    setTimeout(() => setSpinning(false), 500)
-  }
+  // Apply class when theme changes
+  React.useEffect(() => {
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+  }, [isDark])
 
-  if (!mounted) {
-    return (
-      <Button variant="outline" size="icon" className="relative">
-        <span className="sr-only">Toggle theme</span>
-      </Button>
-    )
-  }
+  // Toggle theme on button click
+  const toggleTheme = () => setIsDark((prev) => !prev)
 
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative"
+      className="w-fit h-fit"
     >
-      <Sun
-        className={`h-[1.2rem] w-[1.2rem] transition-all duration-500 ${
-          theme === "dark" ? "scale-0 rotate-90" : "scale-100 rotate-0"
-        } ${spinning ? "animate-spin" : ""}`}
-      />
-      <Moon
-        className={`absolute h-[1.2rem] w-[1.2rem] transition-all duration-500 ${
-          theme === "dark" ? "scale-100 rotate-0" : "scale-0 -rotate-90"
-        } ${spinning ? "animate-spin" : ""}`}
-      />
+      <Sun className="scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+      <Moon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
       <span className="sr-only">Toggle theme</span>
     </Button>
   )
