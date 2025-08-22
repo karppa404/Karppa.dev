@@ -126,7 +126,7 @@ const $$Layout = createComponent(($$result, $$props, $$slots) => {
   Astro2.self = $$Layout;
   const { content } = Astro2.props;
   return renderTemplate(_a || (_a = __template(['<script>\n	const getThemePreference = () => {\n		if (\n			typeof localStorage !== "undefined" &&\n			localStorage.getItem("theme")\n		) {\n			return localStorage.getItem("theme");\n		}\n		return window.matchMedia("(prefers-color-scheme: dark)").matches\n			? "dark"\n			: "light";\n	};\n	const isDark = getThemePreference() === "dark";\n	document.documentElement.classList[isDark ? "add" : "remove"]("dark");\n\n	if (typeof localStorage !== "undefined") {\n		const observer = new MutationObserver(() => {\n			const isDark = document.documentElement.classList.contains("dark");\n			localStorage.setItem("theme", isDark ? "dark" : "light");\n		});\n		observer.observe(document.documentElement, {\n			attributes: true,\n			attributeFilter: ["class"],\n		});\n	}\n<\/script> <html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/img.png"><title>Karppa</title>', '</head> <body class="w-full h-full flex flex-col items-center justify-center"> <main class="w-full md:max-w-2xl h-full"> ', " ", " </main> </body></html>"])), renderHead(), renderComponent($$result, "Header", Header, { "client:load": true, "client:component-hydration": "load", "client:component-path": "@/components/header", "client:component-export": "default" }), renderSlot($$result, $$slots["default"]));
-}, "/Users/spro/Desktop/code/karppa/src/layouts/layout.astro", void 0);
+}, "/Users/spro/Desktop/code/karppa/src/layouts/Layout.astro", void 0);
 
 function Avatar({
   className,
