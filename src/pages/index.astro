@@ -1,75 +1,51 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/card";
-import { BsSubstack } from "react-icons/bs";
-import { FaYoutube } from "react-icons/fa6";
-import { FaBluesky } from "react-icons/fa6";
+import "@/styles/global.css";
+import Layout from "@/layouts/layout.astro";
+import RepoCard from "@/components/repo-card";
+import TextCard from "@/components/text-card";
+import PostCard from "@/components/post-card";
+import { getFeed } from "@/lib/getFeed";
+
+const posts = await getFeed();
 ---
 
 <Layout>
-	<main class="w-full h-full p-6">
-		<section id="About" class="w-full h-full mb-10 gap-5">
-			<h1 class="text-4xl font-black text-primary underline">
-				Hello world👋
-			</h1>
-			<p class="text-lg mt-2">Developer | Dallas / Texas / US</p>
-			<img
-				src="/img.png"
-				alt="img"
-				class="w-full rounded-2xl shadow-xl"
-			/>
-			<p class="text-lg mt-2">
-				At the moment I'm working through my computer science degree at
-				UTD. On the side I like to work on various projects, write about
-				subjects that interest me, and work towards bettering myself in
-				all aspects of life. You can find updates on what I have been up
-				to on this site.
-			</p>
-		</section>
+	<main class="h-full flex flex-col p-2 gap-5 w-full">
+		<TextCard
+			title="About me"
+			desc="At the moment I'm working through my computer science degree at UTD. On the side I like to work on various projects, write about subjects that interest me, and work towards bettering myself in all aspects of life. You can find updates on what I have been up to on this site."
+		/>
 
-		<section id="Projects" class="w-full h-full mb-10">
-			<h1 class="text-4xl font-black text-primary underline">Projects</h1>
-			<p class="text-lg mt-2">
-				These are passion projects I have worked on or am currently
-				working on. These range from small one-off projects to larger,
-				ongoing endeavors.
-			</p>
-			<div class="w-full h-fit grid grid-cols-2 gap-4">
-				<Card
-					title="Karppa.dev"
-					description="The site that you are looking at right now."
-					link="https://github.com/karppa404/Karppa.dev"
-				/>
-				<Card
-					title="Haste Server"
-					description="Paste server for me to send text content."
-					link="https://github.com/karppa404/Haste"
-				/>
-			</div>
-		</section>
-		<section id="Blog" class="w-full h-full mb-10">
-			<h1 class="text-4xl font-black text-primary underline mb-10">
-				links
-			</h1>
+		<TextCard
+			title="Projects"
+			desc="These are passion projects I have worked on or am currently working on. These range from small one-off projects to larger, ongoing endeavors."
+		/>
+		<RepoCard
+			client:load
+			title="https://github.com/karppa404/Haste"
+			desc="A simple paste server I made."
+		/>
+		<RepoCard
+			client:load
+			title="https://github.com/karppa404/Karppa.dev"
+			desc="This is the site you are on right now!"
+		/>
 
-			<Card
-				title="Substack"
-				icon={BsSubstack}
-				description="If a topic catches my interest, I will write a blog post about it. These posts are usually technical in nature, but I may also write about other topics that I find interesting."
-				link="https://substack.com/@jottingannon/posts"
-			/>
-			<Card
-				title="Blue Sky"
-				icon={FaBluesky}
-				description="This is where I engage with communities that interest me or reupload my articles."
-				link="https://bsky.app/profile/karppa.dev"
-			/>
-			<Card
-				title="Youtube"
-				icon={FaYoutube}
-				description="If I think I did a topic justice then I will post a longer form video going over it. "
-				link="https://www.youtube.com/@Karpppa"
-			/>
-		</section>
+		<TextCard
+			title="Blog"
+			desc="Recent posts pulled from my Substack"
+		/>
+		<ul class="flex flex-col gap-3">
+			{
+				posts.map((post:any) => (
+					<PostCard
+						client:load
+						title={post.title}
+						link={post.link}
+						desc={post.description}
+					/>
+				))
+			}
+		</ul>
 	</main>
 </Layout>
