@@ -26,7 +26,7 @@ export default function TextCard({ title, desc,link }: text) {
                     <FaExternalLinkAlt className="size-5 text-current/30"/>
 
                 </div>
-                <div className="text-sm text-primary/30 font-semibold text-justify">
+                <div className="text-sm text-primary/30 font-semibold text-justify line-clamp-1 overflow-hidden">
                     {desc}
                 </div>
 
