@@ -8,10 +8,10 @@ const app = new Elysia({ prefix: '/api' })
             name: t.String()
         })
     })
-  .get('/githubRepos', ({body}) => body, {
+  .get('/ghRepo', ({body}) => body, {
     
   })
-  .get('/substackRssFeed', ({body}) => body, {
+  .get('/subRss', ({body}) => body, {
     
   })
 
