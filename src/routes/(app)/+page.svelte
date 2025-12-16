@@ -6,12 +6,12 @@
 	import Blogpost from '@/components/Blogpost.svelte';
 	import ThemeToggle from '@/components/ThemeToggle.svelte';
 	import TinyIco from '@/assets/tiny.png';
-	import * as Avatar from '$lib/components/ui/avatar/index.js';
+	import Header from '@/assets/Header.png';
 </script>
 
-<!-- https://avatars.githubusercontent.com/u/67647083?v=4 -->
 <main class="min-h-screen px-4 py-8 md:px-8">
 	<div class="mx-auto max-w-7xl">
+		<img src={Header} alt="Header" class="w-full hidden md:block" />
 		<div class="flex flex-col md:flex-row gap-10 md:gap-16">
 			<!-- LEFT COLUMN -->
 			<section
@@ -21,11 +21,6 @@
 		   md:sticky md:top-14 md:self-start"
 			>
 				<div class="space-y-4 w-full md:w-auto">
-					<Avatar.Root class="size-60 border border-accent/30 mx-auto md:mx-0">
-						<Avatar.Image src="https://github.com/karppa404.png" alt="@karppa404" />
-						<Avatar.Fallback>KA</Avatar.Fallback>
-					</Avatar.Root>
-
 					<h2 class="text-2xl font-medium">👋 hey! I am karppa</h2>
 
 					<p class="text-sm opacity-70 leading-relaxed">
@@ -58,7 +53,7 @@
 				<div class="space-y-6">
 					<div class="flex items-center gap-4">
 						<h3 class="text-sm font-medium">Projects</h3>
-						<div class="flex-1 h-px bg-current opacity-20" />
+						<div class="flex-1 h-px bg-current opacity-20"></div>
 					</div>
 
 					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
@@ -96,7 +91,7 @@
 				<div class="space-y-6">
 					<div class="flex items-center gap-4">
 						<h3 class="text-sm font-medium">Blog posts</h3>
-						<div class="flex-1 h-px bg-current opacity-20" />
+						<div class="flex-1 h-px bg-current opacity-20"></div>
 					</div>
 
 					<div class="space-y-6">

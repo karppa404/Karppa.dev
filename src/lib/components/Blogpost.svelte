@@ -15,7 +15,7 @@
 	/>
 
 	<!-- Gradient overlay -->
-	<div class=" absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+	<div class=" absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
 	<!-- Content -->
 	<div class=" relative z-10 h-full flex flex-col justify-end p-6 text-white">
