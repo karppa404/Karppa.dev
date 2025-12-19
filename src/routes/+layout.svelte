@@ -1,8 +1,12 @@
 <script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/tiny.png';
-	import { ModeWatcher } from "mode-watcher";
-	let { children } = $props();
+    import './layout.css';
+    import favicon from '$lib/assets/tiny.png';
+    import { ModeWatcher } from "mode-watcher";
+    import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query'
+
+    let { children } = $props();
+    const queryClient = new QueryClient()
+
 </script>
 
 <svelte:head>
@@ -10,4 +14,7 @@
 	<title>Karppa.dev</title>
 </svelte:head>
 <ModeWatcher />
-{@render children?.()}
+
+<QueryClientProvider client={queryClient}>
+    {@render children?.()}
+</QueryClientProvider>

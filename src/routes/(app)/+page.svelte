@@ -5,20 +5,23 @@
 	import ProjectCard from '@/components/ProjectCard.svelte';
 	import Blogpost from '@/components/Blogpost.svelte';
 	import ThemeToggle from '@/components/ThemeToggle.svelte';
-	import TinyIco from '@/assets/tiny.png';
+
 	import Header from '@/assets/Header.png';
+
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <main class="min-h-screen px-4 py-8 md:px-8">
 	<div class="mx-auto max-w-7xl">
 		<img src={Header} alt="Header" class="w-full hidden md:block" />
 		<div class="flex flex-col md:flex-row gap-10 md:gap-16">
-			<!-- LEFT COLUMN -->
 			<section
 				class="w-full md:w-80 space-y-6
-		   flex flex-col items-center text-center
-		   md:items-start md:text-left
-		   md:sticky md:top-14 md:self-start"
+                flex flex-col items-center text-center
+                md:items-start md:text-left
+                md:sticky md:top-14 md:self-start"
 			>
 				<div class="space-y-4 w-full md:w-auto">
 					<h2 class="text-2xl font-medium">👋 hey! I am karppa</h2>
@@ -57,33 +60,9 @@
 					</div>
 
 					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-						<ProjectCard
-							name="Audio"
-							ico={TinyIco}
-							link="github.com/karppa404"
-							desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-						/>
-
-						<ProjectCard
-							name="Audio"
-							ico={TinyIco}
-							link="github.com/karppa404"
-							desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-						/>
-
-						<ProjectCard
-							name="Audio"
-							ico={TinyIco}
-							link="github.com/karppa404"
-							desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-						/>
-
-						<ProjectCard
-							name="Audio"
-							ico={TinyIco}
-							link="github.com/karppa404"
-							desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-						/>
+						{#each data.repos as repo}
+							<ProjectCard name={repo.name} link={repo.link} desc={repo.description} />
+						{/each}
 					</div>
 				</div>
 

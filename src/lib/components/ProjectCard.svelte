@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { ExternalLink } from '@lucide/svelte';
-	import { Github } from '@lucide/svelte';
-	let { name, link, desc } = $props<{ name: string; link: string; desc: string }>();
+    import { ExternalLink } from '@lucide/svelte';
+    import { Github } from '@lucide/svelte';
+    let { name, link, desc } = $props<{ name: string; link: string; desc?: string }>();
 </script>
 
 <div
 	class="bg-card-foreground/5 backdrop-blur-sm border border-accent/20 rounded-2xl p-4 flex flex-col gap-3 w-full"
 >
-	<a href={'https://' + link} target="_blank" rel="noopener noreferrer" class="group">
+	<a href={'https://github.com/karppa404/' + name} target="_blank" rel="noopener noreferrer" class="group">
 		<div
 			class="flex-col items-center gap-4 rounded-xl p-2 transition-colors group-hover:bg-accent/20"
 		>
