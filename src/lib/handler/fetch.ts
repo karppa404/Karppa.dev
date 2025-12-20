@@ -15,3 +15,8 @@ export async function getGhRepos() {
     link: repo.html_url
   }))
 }
+
+export async function getRSSFeed(){
+  const res = await fetch('https://anon784577.substack.com/feed')
+
+}

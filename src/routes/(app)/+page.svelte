@@ -66,7 +66,7 @@
 					</div>
 				</div>
 
-				<!-- BLOG POSTS -->
+				<!--
 				<div class="space-y-6">
 					<div class="flex items-center gap-4">
 						<h3 class="text-sm font-medium">Blog posts</h3>
@@ -88,7 +88,7 @@
 							link="https://substack.com/home/post/p-181380242"
 						/>
 					</div>
-				</div>
+				</div> -->
 			</section>
 		</div>
 	</div>
