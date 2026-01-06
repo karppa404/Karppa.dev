@@ -14,9 +14,9 @@
 
 <ModeWatcher />
 
-<main class="relative min-h-screen w-full flex flex-col items-center">
-	<section class="flex w-full max-w-2xl flex-col flex-1">
-		<header class="sticky top-0 z-50">
+<main class="relative min-h-screen w-full flex flex-col items-center bg-background">
+	<section class="flex w-full md:max-w-2xl flex-col flex-1">
+		<header class="mb-10">
 			<Navigation />
 			<BreadCrumb/>
 		</header>

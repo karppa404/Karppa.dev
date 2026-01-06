@@ -7,9 +7,9 @@
 </script>
 
 <nav
-	class="inline-flex h-fit w-full items-baseline justify-between bg-background/40 pb-2 backdrop-blur-lg md:pt-14"
+	class="inline-flex h-fit w-full items-baseline justify-between pb-2  md:pt-14"
 >
-	<div class="text-primary text-xl font-black"><a href={resolve('/')}> Karppa.dev </a></div>
+	<div class=" text-xl font-black"><a href={resolve('/')}> Karppa.dev </a></div>
 
 	<div class="inline-flex items-baseline gap-4 text-foreground/50">
 		<a
