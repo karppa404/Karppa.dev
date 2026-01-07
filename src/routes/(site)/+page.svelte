@@ -10,13 +10,13 @@
     } from '@icons-pack/svelte-simple-icons';
 
     // Call the query function
-const postsPromise = getSUBPosts();
+const postsPromise = $state(getSUBPosts());
 </script>
 
 <main class="flex h-full w-full flex-col gap-8 transition-all">
     <section id="Hero" class="flex w-full flex-col items-center gap-4 text-center md:flex-wrap md:text-start">
         <Avatar.Root class="size-32 ring-2 ring-primary">
-            <Avatar.Image src="https://github.com/karppa404.png" alt="@Karppa" />
+            <Avatar.Image src="https://avatars.githubusercontent.com/u/67647083?v=4" alt="@Karppa" />
             <Avatar.Fallback>KA</Avatar.Fallback>
         </Avatar.Root>
         <div class="flex w-full flex-col md:w-2/3">
