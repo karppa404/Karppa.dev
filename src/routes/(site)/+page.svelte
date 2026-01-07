@@ -1,19 +1,11 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar/index';
 	import ProjectCard from '@/components/ProjectCard.svelte';
-	import BlogPost from '@/components/BlogCard.svelte'; // Import your new component
-	import { getSUBPosts } from '@/remote/data.remote'; // Import the query function
+	import BlogPost from '@/components/BlogCard.svelte'; 
+	import { getSUBPosts } from '@/remote/data.remote'; 
 	import { SiSvelte, SiTypescript, SiVercel } from '@icons-pack/svelte-simple-icons';
-import { onMount } from 'svelte';
-
 	// Call the query function
-	let postsPromise = $state(new Promise(() => {}));
-
-    onMount(() => {
-        // Now that the 'main' thread is finished and icons/theme are loaded,
-        // we start the data fetch.
-        postsPromise = getSUBPosts();
-    });
+	const postsPromise = getSUBPosts();
 </script>
 
 <main class="flex h-full w-full flex-col gap-8 transition-all">
