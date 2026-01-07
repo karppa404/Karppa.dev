@@ -47,6 +47,7 @@
 	"dependencies": {
 		"@icons-pack/svelte-simple-icons": "^6.5.0",
 		"@sveltejs/adapter-vercel": "^6.3.0",
+		"@sveltejs/enhanced-img": "^0.9.2",
 		"fast-xml-parser": "^5.3.3",
 		"mode-watcher": "^1.1.0"
 	}
