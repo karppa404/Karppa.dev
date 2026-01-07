@@ -7,7 +7,7 @@ const parser = new XMLParser({
 });
 
 export const getSUBPosts = query(async () => {
-    try {
+
         const response = await fetch("https://anon784577.substack.com/feed");
         const xmlData = await response.text();
         
@@ -27,8 +27,5 @@ export const getSUBPosts = query(async () => {
                 description: post.description
             };
         });
-    } catch (error) {
-        console.error("Error fetching Substack feed:", error);
-        return [];
-    }
+ 
 });

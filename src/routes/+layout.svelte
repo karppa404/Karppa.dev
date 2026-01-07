@@ -10,9 +10,9 @@
 		Karppa.dev
 	</title>
 	<link rel="icon" href={favicon} />
-	<ModeWatcher />
 </svelte:head>
 
+	<ModeWatcher />
 
 <main class="w-full h-full flex flex-col bg-background p-2">
 	{@render children()}
