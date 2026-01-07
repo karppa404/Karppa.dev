@@ -1,30 +1,75 @@
 <script lang="ts">
-    import { ExternalLink } from '@lucide/svelte';
-    import { Github } from '@lucide/svelte';
-    let { name, link, desc } = $props<{ name: string; link: string; desc?: string }>();
+	import * as Card from '$lib/components/ui/card/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { Calendar, ExternalLink } from '@lucide/svelte';
+	import { SiGithub } from '@icons-pack/svelte-simple-icons';
+	import type { Component } from 'svelte';
+
+	let {
+		name,
+		link,
+		repoLink,
+		desc,
+		date,
+		techStack = []
+	}: {
+		name: string;
+		link?: string;
+		repoLink?: string;
+		desc: string;
+		date?: string;
+		techStack?: Array<{
+			icon: Component<any>; // Using any here to allow icon-specific props
+			size?: number | string; // Add size here
+		}>;
+	} = $props();
+
+	let dialogOpen = $state(false);
 </script>
 
-<div
-	class="bg-card-foreground/5 backdrop-blur-sm border border-accent/20 rounded-2xl p-4 flex flex-col gap-3 w-full"
+<Card.Root
+	class="group w-full overflow-hidden border-border transition-all duration-300 hover:border-primary/50"
 >
-	<a href={'https://github.com/karppa404/' + name} target="_blank" rel="noopener noreferrer" class="group">
-		<div
-			class="flex-col items-center gap-4 rounded-xl p-2 transition-colors group-hover:bg-accent/20"
-		>
-			<div class="inline-flex gap-5">
-			<Github
-				class="size-6 shrink-0 transition-transform duration-300 ease-out group-hover:rotate-12"
-			/>
-				<h1 class="text-base font-semibold truncate">{name}</h1>
+	<Card.Header>
+		{#if date}
+			<div class="mb-1 flex items-center gap-2 text-sm text-muted-foreground">
+				<Calendar class="size-4" />
+				<time>{date}</time>
 			</div>
+		{/if}
+		<Card.Title class="text-md font-bold">{name}</Card.Title>
+		<Card.Description class="leading-relaxed text-muted-foreground">
+			{desc}
+		</Card.Description>
+	</Card.Header>
 
-
-			<div class="flex flex-col gap-1 min-w-0">
-				<div class="flex items-center gap-1 text-sm text-foreground/50 truncate">
-					<ExternalLink class="size-4 shrink-0" /> <span class="truncate">{link}</span>
+	{#if techStack.length > 0 || repoLink || link}
+		<Card.Footer class="flex w-full flex-col items-start gap-2">
+			{#if techStack.length > 0}
+				<div class="flex flex-1 flex-wrap gap-2">
+					{#each techStack as tech}
+						<Badge variant="outline" class="flex items-center gap-1.5 px-3 py-1">
+							{@const Icon = tech.icon}
+							<Icon size={tech.size ?? 16} />
+						</Badge>
+					{/each}
 				</div>
+			{/if}
+			<div class="inline-flex gap-2">
+				{#if repoLink}
+					<Button variant="outline" size="sm" href={repoLink} class="gap-2">
+						<SiGithub />
+						Repository
+					</Button>
+				{/if}
+				{#if link}
+					<Button variant="outline" size="sm" href={link} class="gap-2 bg-accent">
+						<ExternalLink class="size-4" />
+						Project Link
+					</Button>
+				{/if}
 			</div>
-		</div>
-	</a>
-	<p class="text-sm text-foreground/50 line-clamp-4">{desc}</p>
-</div>
+		</Card.Footer>
+	{/if}
+</Card.Root>
