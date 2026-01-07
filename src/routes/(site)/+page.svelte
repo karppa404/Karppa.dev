@@ -4,9 +4,16 @@
 	import BlogPost from '@/components/BlogCard.svelte'; // Import your new component
 	import { getSUBPosts } from '@/remote/data.remote'; // Import the query function
 	import { SiSvelte, SiTypescript, SiVercel } from '@icons-pack/svelte-simple-icons';
+import { onMount } from 'svelte';
 
 	// Call the query function
-	const postsPromise = getSUBPosts();
+	let postsPromise = $state(new Promise(() => {}));
+
+    onMount(() => {
+        // Now that the 'main' thread is finished and icons/theme are loaded,
+        // we start the data fetch.
+        postsPromise = getSUBPosts();
+    });
 </script>
 
 <main class="flex h-full w-full flex-col gap-8 transition-all">
