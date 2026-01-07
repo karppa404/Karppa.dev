@@ -6,6 +6,13 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
+	csp: {
+      directives: {
+        'script-src': ['self', 'https://github.com'],
+        'img-src': ['self', 'https://github.com', 'data:'],
+        'connect-src': ['self', 'https://*.substack.com']
+      }
+    },
 	preprocess: [vitePreprocess(), mdsvex()],
 	compilerOptions: {
 		experimental: {

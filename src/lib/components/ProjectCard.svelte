@@ -25,7 +25,6 @@
 		}>;
 	} = $props();
 
-	let dialogOpen = $state(false);
 </script>
 
 <Card.Root
