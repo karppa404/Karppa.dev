@@ -1,8 +1,8 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar/index';
 	import ProjectCard from '@/components/ProjectCard.svelte';
-	import BlogPost from '@/components/BlogCard.svelte'; 
-	import { getSUBPosts } from '@/remote/data.remote'; 
+	import BlogPost from '@/components/BlogCard.svelte';
+	import { getSUBPosts } from '@/remote/data.remote';
 	import { SiSvelte, SiTypescript, SiVercel } from '@icons-pack/svelte-simple-icons';
 	// Call the query function
 	const postsPromise = getSUBPosts();
@@ -55,7 +55,7 @@
 				</div>
 			{:then posts}
 				<div class="grid h-fit w-full grid-cols-1 gap-4 md:grid-cols-2">
-					{#each posts as post}
+					{#each posts as post (post.link)}
 						<BlogPost
 							title={post.title}
 							thumbnail={post.thumbnail}

@@ -1,4 +1,4 @@
-import { prerender } from '$app/server';
+import { query } from '$app/server';
 import { XMLParser } from "fast-xml-parser";
 
 const parser = new XMLParser({
@@ -6,7 +6,7 @@ const parser = new XMLParser({
     attributeNamePrefix: ""  // Removes the '@_' prefix for cleaner access
 });
 
-export const getSUBPosts = prerender(async () => {
+export const getSUBPosts = query(async () => {
     try {
         const response = await fetch("https://anon784577.substack.com/feed");
         const xmlData = await response.text();
