@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Twitter, Github} from '@lucide/svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 	import { SiSubstack,SiX,SiGithub } from '@icons-pack/svelte-simple-icons';
 </script>
 
@@ -42,6 +43,6 @@
 				<SiSubstack size={18} />
 			</a>
 		</div>
-	
+	<ThemeToggle/>
 	</div>
 </footer>

@@ -1,12 +1,18 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 	import { ModeWatcher } from "mode-watcher";
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
-<ModeWatcher />
+<svelte:head>
+	<title>
+		Karppa.dev
+	</title>
+	<link rel="icon" href={favicon} />
+	<ModeWatcher />
+</svelte:head>
+
 
 <main class="w-full h-full flex flex-col bg-background p-2">
 	{@render children()}
