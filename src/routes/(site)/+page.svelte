@@ -49,7 +49,7 @@ These are projects that I work on for experience with a focuse on Full stack web
         <div class="flex flex-col gap-2">
             <h1 class="text-4xl font-bold">Writing:</h1>
             <p class="text-muted-foreground">
-                Thoughts on software, behavioral science, and whatever else I'm building.
+                Thoughts on software, or whatever else I'm am thinking about.
             </p>
         </div>
 
