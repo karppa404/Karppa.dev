@@ -12,9 +12,11 @@
 		repoLink,
 		desc,
 		date,
+		status,
 		techStack = []
 	}: {
 		name: string;
+		status: 'In Progress' | 'Maintenance' | 'Archive';
 		link?: string;
 		repoLink?: string;
 		desc: string;
@@ -24,23 +26,35 @@
 			size?: number | string; // Add size here
 		}>;
 	} = $props();
-
 </script>
 
 <Card.Root
 	class="group w-full overflow-hidden border-border transition-all duration-300 hover:border-primary/50"
 >
 	<Card.Header>
-		{#if date}
+		<Card.Title class="text-md font-bold">{name}</Card.Title>
+		<Card.Description class="leading-relaxed text-muted-foreground">
+			{desc}
+		</Card.Description>
+		<div class="inline-flex justify-between">
+{#if date}
 			<div class="mb-1 flex items-center gap-2 text-sm text-muted-foreground">
 				<Calendar class="size-4" />
 				<time>{date}</time>
 			</div>
 		{/if}
-		<Card.Title class="text-md font-bold">{name}</Card.Title>
-		<Card.Description class="leading-relaxed text-muted-foreground">
-			{desc}
-		</Card.Description>
+		<Badge
+			variant={status === 'In Progress'
+				? 'default'
+				: status === 'Maintenance'
+					? 'secondary'
+					: 'destructive'}
+			class="flex items-center gap-1.5 px-3 py-1"
+		>
+			Status: {status}
+		</Badge>
+		</div>
+		
 	</Card.Header>
 
 	{#if techStack.length > 0 || repoLink || link}

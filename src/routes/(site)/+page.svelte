@@ -35,6 +35,7 @@
 				link="https://karppa.party"
 				desc="Karppa.party is a modern take of the image board."
 				date="January 1, 2026"
+				status="Archive"
 				techStack={[{ icon: SiSvelte }, { icon: SiVercel }, { icon: SiTypescript }]}
 			/>
 		</div>
