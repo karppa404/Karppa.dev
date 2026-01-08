@@ -1,6 +1,5 @@
 
 <script lang="ts">
-	import * as Avatar from '$lib/components/ui/avatar/index';
 	import ProjectCard from '@/components/ProjectCard.svelte';
 	import BlogPost from '@/components/BlogCard.svelte';
 	import { getSUBPosts } from '@/remote/data.remote';
@@ -24,7 +23,7 @@
 		</div>
 	</section>
 
-	<section class="flex flex-col gap-2">
+	<section id="projects" class="flex flex-col gap-2">
 		<h1 class="text-4xl font-bold">Projects:</h1>
 		<p class="text-muted-foreground">
 			These are projects that I work on for experience with a focuse on Full stack webdev.
@@ -34,7 +33,7 @@
 				name="Karppa.party"
 				repoLink="https://github.com/karppa404/karppa.party"
 				link="https://karppa.party"
-				desc="As a learning endever I setout to learn full stack development through the creation of karppa.party."
+				desc="Karppa.party is a modern take of the image board."
 				date="January 1, 2026"
 				techStack={[{ icon: SiSvelte }, { icon: SiVercel }, { icon: SiTypescript }]}
 			/>
