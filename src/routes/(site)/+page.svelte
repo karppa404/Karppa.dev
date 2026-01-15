@@ -4,16 +4,16 @@
 	import BlogPost from '@/components/BlogCard.svelte';
 	import { getSUBPosts } from '@/remote/data.remote';
 	import Favicon from '$lib/assets/favicon.png'
-	import { SiSvelte, SiTypescript, SiVercel } from '@icons-pack/svelte-simple-icons';
+	import { SiSvelte, SiTypescript, SiRust } from '@icons-pack/svelte-simple-icons';
 </script>
 
 
 <main class="flex h-full w-full flex-col gap-8 transition-all">
 	<section
 		id="Hero"
-		class="flex w-full flex-col items-center gap-4 text-center md:flex-wrap md:text-start"
+		class="flex w-full flex-col  gap-4 text-center md:flex-wrap md:text-start pt-20"
 	>
-<img src={Favicon} alt="Icon" class="size-32 rounded-full ring-1 ring-primary bg-accent">
+
   		<div class="flex w-full flex-col md:w-2/3">
 			<h1 class="text-4xl font-bold">👋 Hey! I am karppa.</h1>
 			<p class="text-wrap text-muted-foreground">
@@ -30,13 +30,13 @@
 		</p>
 		<div class="grid h-fit w-full grid-cols-1 gap-2 md:grid-cols-2">
 			<ProjectCard
-				name="Karppa.party"
+				name="Tag.Maestro"
 				repoLink="https://github.com/karppa404/karppa.party"
-				link="https://karppa.party"
-				desc="Karppa.party is a modern take of the image board."
+	
+				desc="A cross platform desktop tagging tool for all of your media needs"
 				date="January 1, 2026"
 				status="In Progress"
-				techStack={[{ icon: SiSvelte }, { icon: SiVercel }, { icon: SiTypescript }]}
+				techStack={[{ icon: SiSvelte }, { icon: SiRust }, { icon: SiTypescript }]}
 			/>
 		</div>
 	</section>
