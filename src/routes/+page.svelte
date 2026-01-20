@@ -1,7 +1,9 @@
 <script lang="ts">
   import { useQuery, useConvexClient } from 'convex-svelte';
   import { api } from '../convex/_generated/api.js';
-
+  import {getIcon} from '$lib/remote/feed.remote'
+  import * as Avatar from "$lib/components/ui/avatar/index.js";
+let iconPromise = getIcon();
   // 1. Reactive query (safe for SSR as it starts in a loading state)
   const viewQuery = useQuery(api.views.getCount, {});
   
@@ -16,6 +18,22 @@
   });
 </script>
 
+{#await iconPromise}
+    <Avatar.Root>
+      <Avatar.Image src={""} alt="@shadcn" />
+      <Avatar.Fallback>CN</Avatar.Fallback>
+    
+    </Avatar.Root> 
+{:then src}
+<Avatar.Root>
+  <Avatar.Image src={src} alt="@shadcn" />
+  <Avatar.Fallback>CN</Avatar.Fallback>
+
+</Avatar.Root>
+{:catch error}
+  <p>Error loading image: {error.message}</p>
+{/await}
+
 {#if viewQuery.isLoading}
   <p>Loading views...</p>
 {:else if viewQuery.error}
@@ -23,3 +41,6 @@
 {:else}
   <p>Current views: {viewQuery.data}</p>
 {/if}
+
+
+WORK IN PROG
