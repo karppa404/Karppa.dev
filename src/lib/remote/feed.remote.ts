@@ -29,3 +29,15 @@ export const getSUBPosts = prerender(async () => {
         });
  
 });
+
+export const getIcon = prerender(async () => {
+  const response = await fetch("https://github.com/karppa404.png");
+  const buffer = await response.arrayBuffer();
+  
+  // Convert the buffer to a base64 string
+  const base64 = btoa(
+    new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
+  );
+  
+  return `data:image/png;base64,${base64}`;
+})
