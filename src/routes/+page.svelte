@@ -9,12 +9,14 @@
 
 	let iconPromise = getIcon();
 	// 1. Reactive query (safe for SSR as it starts in a loading state)
-	const viewQuery = $state(useQuery(api.views.getCount, {}))
-	
-	const formattedNum = $derived(Intl.NumberFormat('en-US', {
-		notation: 'compact',
-		compactDisplay: 'short'
-	}).format(viewQuery.data)) 
+	const viewQuery = $state(useQuery(api.views.getCount, {}));
+
+	const formattedNum = $derived(
+		Intl.NumberFormat('en-US', {
+			notation: 'compact',
+			compactDisplay: 'short'
+		}).format(viewQuery.data)
+	);
 	// 2. Get the direct client
 	const client = useConvexClient();
 
@@ -60,16 +62,23 @@
 		</div>
 		<div class="inline-flex gap-3">
 			<a href="https://bsky.app/profile/karppa.dev">
-				<SiBluesky size={20}/>
+				<SiBluesky size={20} />
 			</a>
 			<a href="https://substack.com/@karppa404?">
-				<SiSubstack size={20}/>
+				<SiSubstack size={20} />
 			</a>
 			<a href="https://github.com/karppa404">
-				<SiGithub size={20}/>
+				<SiGithub size={20} />
 			</a>
 		</div>
 	</section>
+
+	<section id="description" class=" max-w-2xl min-w-2xl">
+		<div class="inline-flex items-center gap-10">
+			<div class="inline-flex items-center gap-2 font-serif text-lg font-semibold">
+			<span class="size-2 bg-green-300 rounded-full"/>
+			Dallas, TX
+			</div>
+		</div>
+	</section>
 </main>
-
-
