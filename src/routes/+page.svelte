@@ -17,7 +17,10 @@ let iconPromise = getIcon();
       .catch(err => console.error("Failed to update view count:", err));
   });
 </script>
-
+<main class="">
+    
+    
+</main>
 {#await iconPromise}
     <Avatar.Root>
       <Avatar.Image src={""} alt="@shadcn" />
@@ -30,6 +33,9 @@ let iconPromise = getIcon();
   <Avatar.Fallback>CN</Avatar.Fallback>
 
 </Avatar.Root>
+
+
+
 {:catch error}
   <p>Error loading image: {error.message}</p>
 {/await}
