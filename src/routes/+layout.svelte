@@ -11,5 +11,7 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 <ModeWatcher />
+<main class="w-full h-full min-h-screen flex flex-col items-center justify-center">
+    {@render children()}
 
-{@render children()}
+</main>

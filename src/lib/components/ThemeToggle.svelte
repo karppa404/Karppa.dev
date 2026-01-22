@@ -6,12 +6,12 @@
  import { Button } from "$lib/components/ui/button/index.js";
 </script>
  
-<Button onclick={toggleMode} variant="outline" size="icon">
+<Button onclick={toggleMode} variant="ghost" size="icon-lg" >
  <SunIcon
-  class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90"
+  class=" scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90 w-full"
  />
  <MoonIcon
-  class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 !transition-all dark:scale-100 dark:rotate-0"
+  class="absolute scale-0 rotate-90 !transition-all dark:scale-100 dark:rotate-0 w-full"
  />
  <span class="sr-only">Toggle theme</span>
 </Button>
