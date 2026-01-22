@@ -3,6 +3,11 @@
   import { api } from '../convex/_generated/api.js';
   import {getIcon} from '$lib/remote/feed.remote'
   import * as Avatar from "$lib/components/ui/avatar/index.js";
+  import { SiBluesky, SiGithub, SiSubstack } from "@icons-pack/svelte-simple-icons";
+
+  
+  
+  
 let iconPromise = getIcon();
   // 1. Reactive query (safe for SSR as it starts in a loading state)
   const viewQuery = useQuery(api.views.getCount, {});
@@ -17,28 +22,35 @@ let iconPromise = getIcon();
       .catch(err => console.error("Failed to update view count:", err));
   });
 </script>
-<main class="">
-    
+<main class="w-full h-full flex flex-col border-dashed/30 border-y">
+    <section id="hero" class="border-dashed/10 bordeer-x">
+        <div class="inline-flex items center ">
+        {#await iconPromise}
+            <Avatar.Root>
+              <Avatar.Image src={"hello"} alt="@shadcn" />
+              <Avatar.Fallback>CN</Avatar.Fallback>
+            
+            </Avatar.Root> 
+        {:then src}
+        <Avatar.Root>
+          <Avatar.Image src={src} alt="@shadcn" />
+          <Avatar.Fallback>CN</Avatar.Fallback>
+        
+        </Avatar.Root> 
+        {:catch error}
+          <p>Error loading image: {error.message}</p>
+        {/await}
+        <h1 class="font-serif text-5xl font-bold italic">Karppa.dev</h1>
+        
+        
+        </div>
+    </section>
     
 </main>
-{#await iconPromise}
-    <Avatar.Root>
-      <Avatar.Image src={""} alt="@shadcn" />
-      <Avatar.Fallback>CN</Avatar.Fallback>
-    
-    </Avatar.Root> 
-{:then src}
-<Avatar.Root>
-  <Avatar.Image src={src} alt="@shadcn" />
-  <Avatar.Fallback>CN</Avatar.Fallback>
-
-</Avatar.Root>
 
 
 
-{:catch error}
-  <p>Error loading image: {error.message}</p>
-{/await}
+
 
 {#if viewQuery.isLoading}
   <p>Loading views...</p>
