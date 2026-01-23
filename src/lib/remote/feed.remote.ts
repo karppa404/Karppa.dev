@@ -1,4 +1,4 @@
-import { prerender } from '$app/server';
+import { query } from '$app/server';
 import { XMLParser } from "fast-xml-parser";
 
 const parser = new XMLParser({
@@ -6,7 +6,7 @@ const parser = new XMLParser({
     attributeNamePrefix: ""  // Removes the '@_' prefix for cleaner access
 });
 
-export const getSUBPosts = prerender(async () => {
+export const getSUBPosts = query(async () => {
 
         const response = await fetch("https://anon784577.substack.com/feed");
         const xmlData = await response.text();
@@ -30,7 +30,7 @@ export const getSUBPosts = prerender(async () => {
  
 });
 
-export const getIcon = prerender(async () => {
+export const getIcon = query(async () => {
   const response = await fetch("https://github.com/karppa404.png");
   const buffer = await response.arrayBuffer();
   
@@ -41,3 +41,23 @@ export const getIcon = prerender(async () => {
   
   return `data:image/png;base64,${base64}`;
 })
+
+export const getWeather = query(async () => {
+  // Use the API endpoint (api.open-meteo.com) instead of the docs page
+  const url = "https://api.open-meteo.com/v1/forecast?latitude=32.7831&longitude=-96.8067&current=temperature_2m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FChicago";
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Weather data fetch failed: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+
+  // Return the specific piece of data you need
+  return {
+    temp: data.current.temperature_2m,
+    unit: data.current_units.temperature_2m,
+    time: data.current.time
+  };
+});
