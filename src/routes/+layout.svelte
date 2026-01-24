@@ -13,5 +13,4 @@
 <ModeWatcher />
 <main class="w-full h-full min-h-screen flex flex-col items-center ">
     {@render children()}
-
 </main>
