@@ -27,10 +27,10 @@
 </script>
 
 <div class="flex flex-col gap-4 max-w-md">
-  <img 
+  <enhanced:img 
     src={img} 
     alt="{title} thumbnail" 
-    class="max-w-md aspect-video object-cover rounded-xl border border-accent"
+    class="max-w-md aspect-video object-cover rounded-xl border border-accent/50"
   />
 
   <div class="flex items-center gap-3">

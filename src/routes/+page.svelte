@@ -130,15 +130,19 @@
 			<div class="space-y-2">
 				<h2 class="text-base font-bold">Computer Science Student @ UTD</h2>
 				<p class="leading-relaxed text-muted-foreground">
-					I am a web developer building in public. You can find all of my works here. You can also
-					contact me below.
+					I am a web developer building in public. You can find all of my works here.
 				</p>
 			</div>
 		</section>
 
 		<section id="project" class="flex flex-col gap-5">
 			<h1 class="font-serif text-4xl">Projects</h1>
+			<p class="leading-relaxed text-muted-foreground">
+			These are projects I am currently working on, maintainning, or have archived.
+			</p>
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 ">
+			<svelte:boundary>
+
 				<ProjectCard
 					title="Echo Chamber"
 					img="https://picsum.photos/seed/echo/600/400"
@@ -163,6 +167,7 @@
 					projectRepo="https://github.com/user/old-blog"
 					description="My very first portfolio attempt. It's messy, but we all start somewhere."
 				/>
+			</svelte:boundary>
 			</div>
 		</section>
 
