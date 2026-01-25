@@ -8,6 +8,7 @@
 	import { Eye } from '@lucide/svelte';
 	import { Sun } from '@lucide/svelte';
 	import ProjectCard from '@/components/ProjectCard.svelte';
+	import NoPreview from "@/assets/NoPreviewAvailible.png"
 	let iconPromise = getIcon();
 	// 1. Reactive query (safe for SSR as it starts in a loading state)
 	const viewQuery = $state(useQuery(api.views.getCount, {}));
@@ -144,29 +145,13 @@
 			<svelte:boundary>
 
 				<ProjectCard
-					title="Echo Chamber"
-					img="https://picsum.photos/seed/echo/600/400"
+					title="Tag.Maestro"
+					img={NoPreview}
 					status="Inprogress"
-					projectRepo="https://github.com/user/echo-chamber"
-					projectSite="https://echo-chamber-demo.com"
-					description="A real-time audio processing dashboard built with SvelteKit and Web Audio API."
+					projectRepo="https://github.com/karppa404/Tag.Maestro"
+					description="A media tagging tool built with sveltekit & convex."
 				/>
 
-				<ProjectCard
-					title="Neon CLI"
-					img="https://picsum.photos/seed/neon/600/400"
-					status="Maintenance"
-					projectRepo="https://github.com/user/neon-cli"
-					description="A lightweight terminal styling engine for Node.js developers who love aesthetics."
-				/>
-
-				<ProjectCard
-					title="Legacy Blog"
-					img="https://picsum.photos/seed/blog/600/400"
-					status="Archived"
-					projectRepo="https://github.com/user/old-blog"
-					description="My very first portfolio attempt. It's messy, but we all start somewhere."
-				/>
 			</svelte:boundary>
 			</div>
 		</section>
