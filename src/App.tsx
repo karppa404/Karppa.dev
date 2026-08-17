@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   GitFork,
   Star,
+  MapPin
 } from "lucide-react"
 import {
   siGithub,
@@ -158,40 +159,21 @@ export function App() {
           </div>
           <ThemeToggle />
         </div>
-      </header>
-
-      {/* TODO: Revisit and rewrite the intro section.
-      <section className="intro section-frame" aria-labelledby="intro-title">
-        <p className="eyebrow" id="intro-title">
-          Hello, I&apos;m Abel
-        </p>
-        <ul>
-          <li>
-            I build small, useful software with a bias toward shipping and learning in
-            public.
-          </li>
-          <li>
-            Lately I&apos;ve been exploring <strong>AI agents</strong>, prediction markets,
-            and playful multiplayer products.
-          </li>
-          <li>
-            Code lives on <a href={`https://github.com/${GITHUB_USERNAME}`}>GitHub</a>;
-            longer notes and experiments live on <a href={SUBSTACK_URL}>Substack</a>.
-          </li>
-        </ul>
+<div className="pt-10 pl-5 pr-5">
+        <p className="eyebrow" id="intro-title">Hey, I&apos;m Abel</p>
+        <p>I share my main projects, quick demonstrations, and random experiments over on <a href="https://github.com/karppa404">GitHub</a>.</p>
+        <p>I write about my latest projects and the topics that catch my interest. Most of my long-form pieces live on my <a href="https://substack.com/@karppa404">Substack</a>.</p>
         <div className="quick-stats">
           <span>
             <strong>{profile?.publicRepos ?? repos.length}</strong> public repos
           </span>
-          <span>
-            <strong>{profile?.followers ?? "—"}</strong> followers
-          </span>
+    
           <span>
             <MapPin aria-hidden="true" /> {profile?.location || "Earth"}
           </span>
         </div>
-      </section>
-      */}
+    </div>
+      </header>
 
       <section className="chart-section section-frame" aria-label="GitHub activity">
         <ActivityChart calendar={calendar} loading={loadingGithub && !calendar} />
